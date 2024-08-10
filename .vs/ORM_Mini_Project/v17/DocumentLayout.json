@@ -1,0 +1,278 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\repositories\\interfaces\\iorderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\repositories\\interfaces\\iorderdetailrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\configurations\\userconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\contexts\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\contexts\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\utilities\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\utilities\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\repositories\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\repositories\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\repositories\\interfaces\\iproductrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\repositories\\interfaces\\ipaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\repositories\\interfaces\\ipaymentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\repositories\\interfaces\\iordersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\repositories\\interfaces\\iordersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\repositories\\interfaces\\generic\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\repositories\\interfaces\\generic\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\models\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|c:\\users\\user\\onedrive\\desktop\\bp303\\orm_mini_project\\orm_mini_project\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0870A35-7BA3-432E-8A34-BF21F9A2ED6C}|ORM_Mini_Project\\ORM_Mini_Project.csproj|solutionrelative:orm_mini_project\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Constants.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Utilities\\Constants.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Utilities\\Constants.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Utilities\\Constants.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Utilities\\Constants.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T21:34:32.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Contexts\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Contexts\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Contexts\\AppDbContext.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Contexts\\AppDbContext.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T21:32:33.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Repositories\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Repositories\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T18:50:58.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IProductRepository.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Repositories\\Interfaces\\IProductRepository.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IProductRepository.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Repositories\\Interfaces\\IProductRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T18:50:09.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IPaymentRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IPaymentRepository.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Repositories\\Interfaces\\IPaymentRepository.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IPaymentRepository.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Repositories\\Interfaces\\IPaymentRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T18:49:27.097Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IOrderDetailRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IOrderDetailRepository.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Repositories\\Interfaces\\IOrderDetailRepository.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IOrderDetailRepository.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Repositories\\Interfaces\\IOrderDetailRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T18:46:23.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IOrdersRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IOrdersRepository.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Repositories\\Interfaces\\IOrdersRepository.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\IOrdersRepository.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Repositories\\Interfaces\\IOrdersRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T18:45:51.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\Generic\\IRepository.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Repositories\\Interfaces\\Generic\\IRepository.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Repositories\\Interfaces\\Generic\\IRepository.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Repositories\\Interfaces\\Generic\\IRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T18:41:04.27Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Configurations\\UserConfiguration.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Configurations\\UserConfiguration.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Configurations\\UserConfiguration.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Configurations\\UserConfiguration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T18:35:53.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "OrderDetail.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Models\\OrderDetail.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Models\\OrderDetail.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Models\\OrderDetail.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Models\\OrderDetail.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T18:23:58.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Models\\Order.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Models\\Order.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Models\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T17:04:58.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Models\\User.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Models\\User.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T17:01:05.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Models\\Product.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T16:55:51.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Program.cs",
+              "RelativeDocumentMoniker": "ORM_Mini_Project\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\Program.cs",
+              "RelativeToolTip": "ORM_Mini_Project\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T16:54:32.985Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
