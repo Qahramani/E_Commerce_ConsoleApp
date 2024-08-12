@@ -1,8 +1,8 @@
 ﻿namespace ORM_Mini_Project.Enums;
 
-public enum OrderStatus
+public enum OrderStatus : byte
 {
-    Pending,
+    Pending = 1,
     Completed,
     Cancelled
 }

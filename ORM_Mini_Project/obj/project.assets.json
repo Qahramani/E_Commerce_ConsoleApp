@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AutoMapper/13.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/AutoMapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -786,6 +802,21 @@
     }
   },
   "libraries": {
+    "AutoMapper/13.0.1": {
+      "sha512": "/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
+      "type": "package",
+      "path": "automapper/13.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.13.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/net6.0/AutoMapper.dll",
+        "lib/net6.0/AutoMapper.xml"
+      ]
+    },
     "Humanizer.Core/2.8.26": {
       "sha512": "OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "type": "package",
@@ -2007,6 +2038,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AutoMapper >= 13.0.1",
       "Microsoft.EntityFrameworkCore >= 6.0.32",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.32",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.32"
@@ -2018,11 +2050,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\ORM_Mini_Project.csproj",
+      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\E_Commerce_ConsoleApp\\ORM_Mini_Project\\ORM_Mini_Project.csproj",
       "projectName": "ORM_Mini_Project",
-      "projectPath": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\ORM_Mini_Project.csproj",
+      "projectPath": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\E_Commerce_ConsoleApp\\ORM_Mini_Project\\ORM_Mini_Project.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\ORM_Mini_Project\\ORM_Mini_Project\\obj\\",
+      "outputPath": "C:\\Users\\User\\OneDrive\\Desktop\\BP303\\E_Commerce_ConsoleApp\\ORM_Mini_Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2056,6 +2088,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AutoMapper": {
+            "target": "Package",
+            "version": "[13.0.1, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.32, )"
