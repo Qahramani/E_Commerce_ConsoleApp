@@ -9,8 +9,7 @@ public interface IOrderService
     Task CancelOrder(int orderId);
     Task CompleteOrder(int orderId);
     Task<List<OrderGetDto>> GetOrders();
-    Task AddOrderDetail(OrderDetailPutDto orderDetail);
+    Task AddOrderDetail(OrderDetailPostDto orderDetail);
 
-    Task<OrderDetailGetDto> GetOrderDetailsByOrderId(int orderId);
-
+    Task<List<OrderDetailGetDto>> GetOrderDetailsByOrderId(int orderId);
 }

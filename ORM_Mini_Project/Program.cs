@@ -64,17 +64,6 @@ namespace ORM_Mini_Project
             //productService.UpdateAsync(productPutDto);
 
 
-
-
-            OrderService orderService = new OrderService();
-
-            OrderPostDto orderPostDto = new()
-            {
-                UserId = 1,
-                TotalAmount  =123.23m,
-                Status = OrderStatus.Completed
-            };
-            orderService.CreateAsync(orderPostDto);
         }
 
 

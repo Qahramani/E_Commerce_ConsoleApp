@@ -2,5 +2,5 @@
 
 public static class Constants
 {
-    public const string connectionString = @"Server=Ruhel\SQLEXPRESS;Database=ECommerceMiniApp;Trusted_connection=true";
+    public const string connectionString = @"Server=Ruhel\SQLEXPRESS;Database=ECommerceConsole;Trusted_connection=true";
 }
