@@ -11,6 +11,6 @@ public class Product : BaseEntity
     public DateTime CreatedDate { get; set; }
     public DateTime UpdatedDate { get; set; }
 
-    public List<OrderDetail> OrderDetails { get; set; }
+    public List<OrderDetail> OrderDetails { get; set; } = new();
 
 }

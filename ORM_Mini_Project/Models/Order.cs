@@ -10,7 +10,11 @@ public class Order : BaseEntity
     public DateTime OrderDate { get; set; }
     public decimal TotalAmount { get; set; }
     public OrderStatus Status { get; set; }
-    public List<OrderDetail> OrderDetails { get; set; }
-    public List<Payment> Payments { get; set; }
+    public List<OrderDetail> OrderDetails { get; set; } = new();
+    public List<Payment> Payments { get; set; } = new();
 
+    public override string ToString()
+    {
+        return $"OrderDate : {OrderDate}, TotalAmount : {TotalAmount}, Status : {Status}";
+    }
 }

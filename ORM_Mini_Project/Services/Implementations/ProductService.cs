@@ -17,12 +17,11 @@ public class ProductService : IProductService
 
     public async Task CreateAsync(ProductPostDto productDto)
     {
-        if (string.IsNullOrEmpty(productDto.Name) || productDto.Price < 0)
-            throw new InvalidProductException("Name cannot be empty and price should be positive number");
-
         var isProductExist = await _productRepository.IsExistAsync(x => x.Name == productDto.Name);
         if (isProductExist)
             throw new AlreadyExistException("Product with given name already exist");
+        if (string.IsNullOrEmpty(productDto.Name) || productDto.Price < 0)
+            throw new InvalidProductException("Name cannot be empty and price should be positive number");
 
         Product product = new()
         {
@@ -42,12 +41,14 @@ public class ProductService : IProductService
         var product = await _getByIdAsync(id);
         _productRepository.Delete(product);
         await _productRepository.SaveAllChangesAsync();
-        Console.WriteLine("Product deleted successfully");
     }
 
     public async Task UpdateAsync(ProductPutDto newProductDto)
     {
         var product = await _getByIdAsync(newProductDto.Id);
+
+        if (newProductDto.Price < 0 || newProductDto.Stock < 0)
+            throw new InvalidProductException("Price and Stoc count should be positive");
 
         var isProductExist = await _productRepository.IsExistAsync(x => x.Name == newProductDto.Name && x.Id != newProductDto.Id);
         if (isProductExist)
@@ -62,8 +63,6 @@ public class ProductService : IProductService
         _productRepository.Update(product);
         await _productRepository.SaveAllChangesAsync();
 
-        Console.WriteLine("Product updated successfully");
-
     }
 
     public async Task<List<ProductGetDto>> GetAllAsync()
@@ -72,7 +71,7 @@ public class ProductService : IProductService
 
         List<ProductGetDto> productsList = new List<ProductGetDto>();
 
-        productsList.ForEach(product =>
+        products.ForEach(product =>
         {
             ProductGetDto productGetDto = new()
             {
@@ -81,7 +80,7 @@ public class ProductService : IProductService
                 Price = product.Price,
                 Description = product.Description,
             };
-            productsList.Add(product);
+            productsList.Add(productGetDto);
         });
 
         return productsList;

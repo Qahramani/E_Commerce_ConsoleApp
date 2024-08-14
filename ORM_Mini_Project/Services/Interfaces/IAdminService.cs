@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ORM_Mini_Project.DTOs.ProductDtos;
+using ORM_Mini_Project.DTOs.UserDtos;
+using ORM_Mini_Project.Models;
 
-namespace ORM_Mini_Project.Services.Interfaces
+namespace ORM_Mini_Project.Services.Interfaces;
+
+public interface IAdminService
 {
-    internal interface IAdminService
-    {
-    }
+    Task BlockUserAsync(int userId);
+    Task UnblockUserASync(int userId);
+    Task PrintUserInfoAsync(int userId);
+    Task PrintAllUsersAsync();
+
+
 }

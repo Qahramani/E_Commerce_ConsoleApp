@@ -1,5 +1,4 @@
-﻿using ORM_Mini_Project.AutoMapper;
-using ORM_Mini_Project.DTOs.OrderDtos;
+﻿using ORM_Mini_Project.DTOs.OrderDtos;
 using ORM_Mini_Project.DTOs.UserDtos;
 using ORM_Mini_Project.Exceptions;
 using ORM_Mini_Project.Models;
@@ -80,11 +79,13 @@ public class UserService : IUserService
     }
 
 
-    public async Task<bool> LoginUserASync(string username, string password)
+    public async Task<bool> LoginUserASync(string email, string password)
     {
-        var foundUser = await _userRepository.GetSingleAsync(x => x.Password ==  password && x.Email == username);
+        var foundUser = await _userRepository.GetSingleAsync(x => x.Password ==  password && x.Email == email);
         if (foundUser is null)
             throw new InvalidUserInformationException("User is not found");
+        if (foundUser.IsActive is false)
+            throw new UserIsBLokedException("Your account is blocked");
         return true;
     }
 
