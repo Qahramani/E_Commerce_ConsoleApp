@@ -5,11 +5,10 @@ namespace ORM_Mini_Project.Services.Interfaces;
 
 public interface IOrderService
 {
-    Task CreateAsync(OrderPostDto orderPostDto);
+    Task<int> CreateOrderAsync(int userId);
     Task CancelOrder(int orderId);
     Task CompleteOrder(int orderId);
     Task<List<OrderGetDto>> GetOrders();
     Task AddOrderDetail(OrderDetailPostDto orderDetail);
-
     Task<List<OrderDetailGetDto>> GetOrderDetailsByOrderId(int orderId);
 }

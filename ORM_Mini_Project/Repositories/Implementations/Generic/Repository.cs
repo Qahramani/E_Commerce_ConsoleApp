@@ -47,7 +47,7 @@ public class Repository<T> : IRepository<T> where T : BaseEntity
 
         foreach (var include in includes)
         {
-            query.Include(include);
+            query = query.Include(include);
         }
         return await query.FirstOrDefaultAsync(predicate);
     }

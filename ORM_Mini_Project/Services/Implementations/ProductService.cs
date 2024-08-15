@@ -75,6 +75,7 @@ public class ProductService : IProductService
         {
             ProductGetDto productGetDto = new()
             {
+                Id = product.Id,
                 Name = product.Name,
                 Stock = product.Stock,
                 Price = product.Price,
@@ -92,7 +93,8 @@ public class ProductService : IProductService
 
         ProductGetDto productGetDto = new()
         {
-            Name= product.Name,
+            Id = product.Id,
+            Name = product.Name,
             Stock = product.Stock,
             Price = product.Price,
             Description = product.Description,
@@ -120,6 +122,7 @@ public class ProductService : IProductService
         {
             ProductGetDto p = new()
             {
+                Id = product.Id,
                 Name = product.Name,
                 Stock = product.Stock,
                 Price = product.Price,

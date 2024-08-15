@@ -1,5 +1,6 @@
 ﻿using ORM_Mini_Project.DTOs.OrderDtos;
 using ORM_Mini_Project.DTOs.UserDtos;
+using ORM_Mini_Project.Enums;
 using ORM_Mini_Project.Exceptions;
 using ORM_Mini_Project.Models;
 using ORM_Mini_Project.Repositories.Implementations;
@@ -58,46 +59,10 @@ public class UserService : IUserService
         await _userRepository.SaveAllChangesAsync();
     }
 
-
-    public async Task<List<UserGetDto>> GetUserOrdersAsync()
-    {
-        var users = await _userRepository.GetAllAsync("Order.OrderDetail","Order.Payment");
-
-        List<UserGetDto> usersList = new List<UserGetDto>();
-        foreach (var user in users)
-        {
-            UserGetDto userDto = new UserGetDto
-            {
-                Address = user.Address,
-                Email = user.Email,
-                Fullname = user.Fullname
-            };
-            usersList.Add(userDto);
-        }
-        return usersList;
-
-    }
-
-
-    public async Task<bool> LoginUserASync(string email, string password)
-    {
-        var foundUser = await _userRepository.GetSingleAsync(x => x.Password ==  password && x.Email == email);
-        if (foundUser is null)
-            throw new InvalidUserInformationException("User is not found");
-        if (foundUser.IsActive is false)
-            throw new UserIsBLokedException("Your account is blocked");
-        return true;
-    }
-
-    public Task ExportUserOrdersToExcel(int userId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public async Task<List<OrderGetDto>> GetUserOrdersAsync(int userId)
+    public async Task<List<OrderGetDto>> GetUserOrdersAsync(int userId )
     {
         await _getByIdAsync(userId);
-        var user = await _userRepository.GetSingleAsync(x => x.Id == userId,"Orders.OrderDetails");
+        var user = await _userRepository.GetSingleAsync(x => x.Id == userId, "Orders.OrderDetails.Product");
 
         List<OrderGetDto> ordersList = new();
 
@@ -117,6 +82,31 @@ public class UserService : IUserService
         }
         return ordersList;
     }
+
+    public async Task<UserGetDto> LoginUserASync(string email, string password)
+    {
+        var foundUser = await _userRepository.GetSingleAsync(x => x.Password ==  password && x.Email == email);
+        if (foundUser is null)
+            throw new InvalidUserInformationException("User is not found");
+        if (foundUser.IsActive is false)
+            throw new UserIsBLokedException("Your account is blocked");
+
+        UserGetDto loggedUser = new()
+        {
+            Id = foundUser.Id,
+            Fullname = foundUser.Fullname,
+            Email = foundUser.Email,
+            Address = foundUser.Address,
+        };
+        return loggedUser;
+    }
+
+    public Task ExportUserPaymentsToExcel(int userId)
+    {
+        throw new NotImplementedException();
+    }
+
+   
 
     private async Task<User> _getByIdAsync(int id)
     {

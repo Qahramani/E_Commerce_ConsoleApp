@@ -4,6 +4,6 @@ namespace ORM_Mini_Project.Services.Interfaces;
 
 public interface IPaymentService
 {
-    Task MakePayment(PaymentPostDto paymentPost);
-    Task<List<PaymentGetDto>> GetPayments();
+    Task MakePaymentAsync(int orderId);
+    Task<List<PaymentGetDto>> GetPaymentsAsync(int userId);
 }

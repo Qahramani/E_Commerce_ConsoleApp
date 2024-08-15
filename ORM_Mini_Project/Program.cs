@@ -7,6 +7,9 @@ using ORM_Mini_Project.Services.Implementations;
 using ORM_Mini_Project.Enums;
 using ORM_Mini_Project.Utilities;
 using ORM_Mini_Project.Exceptions;
+using System.Globalization;
+using ORM_Mini_Project.DTOs.OrderDetailDtos;
+using ORM_Mini_Project.DTOs.PaymentDtos;
 
 namespace ORM_Mini_Project
 {
@@ -21,118 +24,340 @@ namespace ORM_Mini_Project
             PaymentService paymentService = new PaymentService();
             AdminService adminService = new AdminService();
 
-        restartMainMenu:
-            Console.WriteLine("----- Main Menu -----");
-            Console.Write("[1] Register\n" +
-                "[2] Login\n" +
-                "[3] Admin Login\n" +
+            UserGetDto loggedUser = new UserGetDto();
+        //restartMainMenu:
+        //    Console.WriteLine("----- Main Menu -----");
+        //    Console.Write("[1] Register\n" +
+        //        "[2] Login\n" +
+        //        "[3] Admin Login\n" +
+        //        "[0] Exit\n" +
+        //        ">>> ");
+        //    string opt = Console.ReadLine();
+        //    try
+        //    {
+        //        switch (opt)
+        //        {
+        //            case "1":
+        //                Console.WriteLine("--- User Registration ---");
+        //                Console.Write("Username : ");
+        //                string fullname = Console.ReadLine().Trim();
+
+        //                Console.Write("Email : ");
+        //                string email = Console.ReadLine().Trim();
+        //                Validations.IsEmailCorrect(email);
+
+        //                Console.Write("Password : ");
+        //                string password = Console.ReadLine().Trim();
+        //                Validations.IsPasswordCorrect(password);
+        //                Console.Write("Address : ");
+        //                string address = Console.ReadLine().Trim();
+        //                UserPostDto newUser = new()
+        //                {
+        //                    Fullname = fullname,
+        //                    Email = email,
+        //                    Password = password,
+        //                    Address = address
+        //                };
+        //                await userService.RegisterUserAsync(newUser);
+        //                Colored.WriteLine("User created successfully", ConsoleColor.DarkGreen);
+        //                goto restartMainMenu;
+        //            case "2":
+        //                Console.WriteLine("--- User Login ---");
+        //                Console.Write("Email : ");
+        //                string loginEmail = Console.ReadLine();
+        //                Console.Write("Password : ");
+        //                string loginPassword = Console.ReadLine();
+        //                loggedUser = await userService.LoginUserASync(loginEmail, loginPassword);
+        //                break;
+        //            case "3":
+        //                Console.WriteLine("--- Admin Login ---");
+        //                Console.Write("Username : ");
+        //                string adminLoginUsername = Console.ReadLine();
+        //                Console.Write("Password : ");
+        //                string adminloginPassword = Console.ReadLine();
+        //                if (adminLoginUsername == AdminService.adminName && adminloginPassword == AdminService.adminPassword)
+        //                    await AdminMenu(productService, adminService);
+        //                else
+        //                    Colored.WriteLine("Invalid username/password for admin", ConsoleColor.DarkRed);
+
+        //                goto restartMainMenu;
+        //            case "0":
+        //                Colored.WriteLine("GoodBye....", ConsoleColor.DarkYellow);
+        //                return;
+        //            default:
+        //                Colored.WriteLine("Invalid input", ConsoleColor.DarkRed);
+        //                goto restartMainMenu;
+        //        }
+        //    }
+        //    catch (AlreadyExistException ex)
+        //    {
+        //        Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
+        //        goto restartMainMenu;
+        //    }
+        //    catch (InvalidUserInformationException ex)
+        //    {
+        //        Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
+        //        goto restartMainMenu;
+        //    }
+        //    catch (WrongEmailException ex)
+        //    {
+        //        Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
+        //        goto restartMainMenu;
+        //    }
+        //    catch (WrongPasswordException ex)
+        //    {
+        //        Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
+        //        goto restartMainMenu;
+        //    }
+        //    catch (UserIsBLokedException ex)
+        //    {
+        //        Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
+        //        goto restartMainMenu;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
+        //        goto restartMainMenu;
+        //    }
+
+
+
+            //    Colored.WriteLine($"You're Welcome {loggedUser.Fullname} !", ConsoleColor.DarkMagenta);
+            //restartUserMenu:
+            //Console.WriteLine("--- User Menu ---");
+            //Console.Write("[1] Orders Menu\n" +
+            //    "[2] Change \n" +
+            //    "[3] Payments Menu\n" +
+            //    "[] Settings\n" +
+            //    "[0] Exit\n" +
+            //    ">>> ");
+            //string opt = Console.ReadLine();
+
+            //switch (opt)
+            //{
+            //    case "1":
+            //        restartOrdersMenu:
+            //        Console.WriteLine("--- Orders Menu ---");
+            //        Console.Write("[1] Make Order\n" +
+            //            "[2] See your Orders\n" +
+            //            ">>> ");
+            //        opt = Console.ReadLine();
+            //        switch (opt)
+            //        {
+            //            case "1":
+            //                //Creating Order
+            //                orderService.CreateAsync(loggedUser.Id);
+
+            //                Console.Write("Product Name : ");
+            //                string search = Console.ReadLine();
+            //                var products =await  productService.GetAllAsync();
+            //                foreach (ProductGetDto p in products)
+            //                {
+            //                    Console.WriteLine($"Id : {p.Id}, Name : {p.Name} , Price : {p.Price}, Description : {p.Description}");
+            //                }
+            //                Console.Write("Id of product that you want add to basket : ");
+            //                int addId = int.Parse(Console.ReadLine());
+
+            //                var foundProduct = await productService.GetByIdAsync(addId);
+
+            //                Console.Write("Quantity : ");
+            //                int quantity = int.Parse(Console.ReadLine());
+
+
+
+            //                OrderDetailPostDto orderDto = new()
+            //                {
+            //                    OrderId = foundProduct.Id,
+            //                    ProductId = foundProduct.Id,
+            //                    PricePerItem = foundProduct.Price,
+            //                    Quantity = quantity
+            //                };
+            //                await orderService.AddOrderDetail(orderDto);
+
+            //                goto restartOrdersMenu;
+            //            default:
+            //                break;
+            //        }
+            //        goto restartUserMenu;
+            //    default:
+            //        Colored.WriteLine("Invalid input", ConsoleColor.DarkRed);
+            //        goto restartUserMenu;
+            //}
+
+
+            loggedUser.Id = 1;
+            await OrdersMenu(userService, productService, orderService, paymentService, loggedUser);
+        }
+
+        private static async Task OrdersMenu(UserService userService, ProductService productService, OrderService orderService, PaymentService paymentService, UserGetDto loggedUser)
+        {
+            
+
+        restartOrdersMenu:
+            Console.WriteLine("--- Orders Menu ---");
+            Console.Write("[1] Make Order\n" +
+                "[2] Complete Order\n" +
+                "[3] Cancel Order\n" +
+                "[4] See your Orders\n" +
+                "[5] See your Payments\n" +
                 "[0] Exit\n" +
                 ">>> ");
             string opt = Console.ReadLine();
+            var orders = await userService.GetUserOrdersAsync(loggedUser.Id);
             try
             {
                 switch (opt)
                 {
                     case "1":
-                        Console.WriteLine("--- User Registration ---");
-                        Console.Write("Username : ");
-                        string fullname = Console.ReadLine().Trim();
-
-                        Console.Write("Email : ");
-                        string email = Console.ReadLine().Trim();
-                        Validations.IsEmailCorrect(email);
-
-                        Console.Write("Password : ");
-                        string password = Console.ReadLine().Trim();
-                        Validations.IsPasswordCorrect(password);
-                        Console.Write("Address : ");
-                        string address = Console.ReadLine().Trim();
-                        UserPostDto newUser = new()
+                        int orderId;
+                        Console.Write("Do you want create new order or update the exisiting one? N(New) / E(Existing) : ");
+                        opt = Console.ReadLine();
+                        if (opt.ToUpper() == "N")
                         {
-                            Fullname = fullname,
-                            Email = email,
-                            Password = password,
-                            Address = address
-                        };
-                        await userService.RegisterUserAsync(newUser);
-                        Colored.WriteLine("User created successfully", ConsoleColor.DarkGreen);
-                        goto restartMainMenu;
-                    case "2":
-                        Console.WriteLine("--- User Login ---");
-                        Console.Write("Username : ");
-                        string loginEmail = Console.ReadLine();
-                        Console.Write("Password : ");
-                        string loginPassword = Console.ReadLine();
-                        await userService.LoginUserASync(loginEmail, loginPassword);
-                        break;
-                    case "3":
-                        Console.WriteLine("--- Admin Login ---");
-                        Console.Write("Username : ");
-                        string adminLoginUsername = Console.ReadLine();
-                        Console.Write("Password : ");
-                        string adminloginPassword = Console.ReadLine();
-                        if (adminLoginUsername == AdminService.adminName && adminloginPassword == AdminService.adminPassword)
-                            await AdminMenu(productService, adminService);
+                            orderId = await orderService.CreateOrderAsync(loggedUser.Id);
+                        }
+                        else if (opt.ToUpper() == "E")
+                        {
+                            Console.WriteLine("--- Pending Orders ---");
+                            foreach (var order in orders)
+                            {
+                                if (order.Status == OrderStatus.Pending)
+                                    Console.WriteLine($"Id : {order.Id}, TotalAmount : {order.TotalAmount}, OrderDate : {order.OrderDate}, Status : {order.Status}");
+                            }
+                            Console.Write("Id of order that you want update : ");
+                            orderId = int.Parse(Console.ReadLine());
+                            var foundOrder = await orderService.GetOrderByIdAsync(orderId);
+                        }
                         else
-                            Colored.WriteLine("Invalid username/password for admin", ConsoleColor.DarkRed);
+                        {
+                            Colored.WriteLine("Invalid input", ConsoleColor.DarkRed);
+                            goto restartOrdersMenu;
+                        }
 
-                        goto restartMainMenu;
+                        //Console.Write("Product Name : ");
+                        //string search = Console.ReadLine();
+                        var products = await productService.GetAllAsync();
+                        Console.WriteLine("--- Products List ---");
+                        foreach (ProductGetDto p in products)
+                        {
+                            Console.Write($"\nId : {p.Id}, Name : {p.Name} , Price : {p.Price}, Description : {p.Description}");
+                            if (p.Stock <= 0)
+                            {
+                                Colored.WriteLine(" | Out of stock", ConsoleColor.DarkYellow);
+                            }
+                        }
+                        Console.Write("\nId of product that you want add to basket : ");
+                        int addId = int.Parse(Console.ReadLine());
+
+                        var foundProduct = await productService.GetByIdAsync(addId);
+
+                        Console.Write("Quantity : ");
+                        int quantity = int.Parse(Console.ReadLine());
+
+                        OrderDetailPostDto orderDetailDto = new()
+                        {
+                            OrderId = orderId,
+                            ProductId = foundProduct.Id,
+                            PricePerItem = foundProduct.Price,
+                            Quantity = quantity
+                        };
+                        await orderService.AddOrderDetail(orderDetailDto);
+                        Colored.WriteLine("Order Detail added successfully", ConsoleColor.DarkGreen);
+
+                        goto restartOrdersMenu;
+                    case "2":
+                        foreach (var order in orders)
+                        {
+                            if (order.Status == OrderStatus.Pending)
+                                Console.WriteLine($"Id : {order.Id}, TotalAmount : {order.TotalAmount}, OrderDate : {order.OrderDate}");
+                        }
+                        Console.Write("Id of order that you want complete : ");
+                        int completeId = int.Parse(Console.ReadLine());
+                        await orderService.CompleteOrder(completeId);
+                        Colored.WriteLine("Order was completed succsefully (Payment was made)", ConsoleColor.DarkGreen);
+                        goto restartOrdersMenu;
+                    case "3":
+                        foreach (var order in orders)
+                        {
+                            if (order.Status == OrderStatus.Pending)
+                                Console.WriteLine($"Id : {order.Id}, TotalAmount : {order.TotalAmount}, OrderDate : {order.OrderDate}");
+                        }
+                        Console.Write("Id of order that you want cancel : ");
+                        int canceleId = int.Parse(Console.ReadLine());
+                        await orderService.CancelOrder(canceleId);
+                        Colored.WriteLine("Order was cancelled succsefully (Payment was made)", ConsoleColor.DarkGreen);
+                        goto restartOrdersMenu;
+                    case "4":
+                        await PrintOrdersAsync(userService, loggedUser);
+                        goto restartOrdersMenu;
+                    case "5":
+                        Console.WriteLine("--- Payments List ---");
+                        var paymentsGetDto = await paymentService.GetPaymentsAsync(loggedUser.Id);
+                        foreach (var p in paymentsGetDto)
+                        {
+                            Console.WriteLine($"Order Id : {p.Order.Id}, Payment Date : {p.PaymentDate}, Amount : {p.Amount}");
+                        }
+
+                        goto restartOrdersMenu;
                     case "0":
-                        Colored.WriteLine("GoodBye....", ConsoleColor.DarkYellow);
                         return;
                     default:
                         Colored.WriteLine("Invalid input", ConsoleColor.DarkRed);
-                        goto restartMainMenu;
+                        goto restartOrdersMenu;
                 }
             }
-            catch (AlreadyExistException ex)
+            catch (InvalidOrderException ex)
             {
                 Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
-                goto restartMainMenu;
             }
-            catch (InvalidUserInformationException ex)
+            catch (InvalidProductException ex)
             {
                 Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
-                goto restartMainMenu;
             }
-            catch (WrongEmailException ex)
+            catch (InvalidOrderDetailException ex)
             {
                 Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
-                goto restartMainMenu;
             }
-            catch (WrongPasswordException ex)
+            catch (NotFoundException ex)
             {
                 Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
-                goto restartMainMenu;
             }
-            catch(UserIsBLokedException ex)
+            catch (OrderAlreadyCancelledException ex)
             {
                 Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
-                goto restartMainMenu;
+            }
+            catch (OrderAlreadyCompletedException ex)
+            {
+                Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
             }
             catch (Exception ex)
             {
                 Colored.WriteLine($"{ex.Message}", ConsoleColor.DarkRed);
-                goto restartMainMenu;
             }
+            goto restartOrdersMenu;
 
+        }
 
+        private static async Task PrintOrdersAsync(UserService userService, UserGetDto loggedUser)
+        {
+            Console.WriteLine("--- Your Orders ---");
+            var ordersList = await userService.GetUserOrdersAsync(loggedUser.Id);
 
-
-
-
-
-
-
-
-            //Console.WriteLine("Hello {}");
-            //Console.WriteLine("--- User Menu ---");
-            //Console.Write("[1] Products Menu\n" +
-            //    "[2] Orders Menu\n" +
-            //    "[3] Payment Menu\n" +
-            //    ">>> ");
-
-
+            foreach (var order in ordersList)
+            {
+                Console.Write($"Id : {order.Id}, TotalAmount : {order.TotalAmount}, OrderDate : {order.OrderDate}, Status : ");
+                if (order.Status == OrderStatus.Completed)
+                    Colored.WriteLine("Completed", ConsoleColor.DarkGreen);
+                else if (order.Status == OrderStatus.Pending)
+                    Colored.WriteLine("Pending", ConsoleColor.DarkYellow);
+                else if (order.Status == OrderStatus.Cancelled)
+                    Colored.WriteLine("Canceled", ConsoleColor.DarkRed);
+                foreach (var od in order.OrderDetails)
+                {
+                    Colored.WriteLine($"Product : {od.Product.Name},Quantity : {od.Quantity} ,PricePerItem : {od.PricePerItem}", ConsoleColor.White);
+                }
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
+            }
         }
 
         private static async Task AdminMenu(ProductService productService, AdminService adminService)

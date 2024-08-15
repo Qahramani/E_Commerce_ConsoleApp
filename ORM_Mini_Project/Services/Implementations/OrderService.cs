@@ -9,81 +9,101 @@ using ORM_Mini_Project.Services.Interfaces;
 
 namespace ORM_Mini_Project.Services.Implementations;
 
-public class OrderService  : IOrderService
+public class OrderService : IOrderService
 {
     private readonly IOrdersRepository _ordersRepository;
     private readonly IUserRepository _userRepository;
     private readonly IOrderDetailRepository _orderDetailRepository;
+    private readonly IProductRepository _productRepository;
+    private readonly PaymentService _paymentService;
     public OrderService()
     {
         _ordersRepository = new OrderRepository();
         _userRepository = new UserRepository();
         _orderDetailRepository = new OrderDetailRepository();
-
+        _productRepository = new ProductRepository();
+        _paymentService = new PaymentService();
     }
 
     public async Task AddOrderDetail(OrderDetailPostDto orderDetail)
     {
-        var isOrderExist = _ordersRepository.IsExistAsync(x => x.Id == orderDetail.OrderId);
-        if (isOrderExist is null)
+        var foundOrder = await _ordersRepository.GetSingleAsync(x => x.Id == orderDetail.OrderId);
+
+        if (foundOrder is null)
             throw new InvalidOrderException("Order with this id is not exist");
-        var isProductExist = _ordersRepository.IsExistAsync(x => x.Id == orderDetail.ProductId);
-        if (isProductExist is null)
+
+        var foundProduct = await _productRepository.GetSingleAsync(x => x.Id == orderDetail.ProductId);
+
+        if (foundProduct is null)
             throw new InvalidProductException("Product with this id is not exist");
-        if (orderDetail.PricePerItem < 0 || orderDetail.Quantity < 0)
+
+        if (orderDetail.Quantity < 0)
             throw new InvalidOrderDetailException("Price and quantity should be bigger than 0");
 
-        OrderDetail newOtderDetail = new()
+        foundOrder.TotalAmount += foundProduct.Price * orderDetail.Quantity;
+
+        OrderDetail newOrderDetail = new()
         {
             OrderId = orderDetail.OrderId,
             ProductId = orderDetail.ProductId,
             Quantity = orderDetail.Quantity,
-            PricePerItem = orderDetail.PricePerItem
+            PricePerItem = foundProduct.Price
         };
-        await _orderDetailRepository.CreateAsync(newOtderDetail);
+
+        _ordersRepository.Update(foundOrder);
+        await _ordersRepository.SaveAllChangesAsync();
+        _productRepository.Update(foundProduct);
+
+        await _orderDetailRepository.CreateAsync(newOrderDetail);
         await _orderDetailRepository.SaveAllChangesAsync();
 
     }
 
     public async Task CancelOrder(int orderId)
     {
-        var order = await _getByIdAsync(orderId);
+        var order = await GetOrderByIdAsync(orderId);
+        if (order.Status == OrderStatus.Completed)
+            throw new OrderAlreadyCancelledException("Order already completed");
         if (order.Status == OrderStatus.Cancelled)
             throw new OrderAlreadyCancelledException("Order already cancelled");
         order.Status = OrderStatus.Cancelled;
+
         await _ordersRepository.SaveAllChangesAsync();
     }
 
     public async Task CompleteOrder(int orderId)
     {
-        var order = await _getByIdAsync(orderId);
+        var order = await GetOrderByIdAsync(orderId);
+        if (order.Status == OrderStatus.Cancelled)
+            throw new OrderAlreadyCancelledException("Order already cancelled");
         if (order.Status == OrderStatus.Completed)
             throw new OrderAlreadyCompletedException("Order already completed");
+
+
         order.Status = OrderStatus.Completed;
+        await _paymentService.MakePaymentAsync(orderId);
+
         await _ordersRepository.SaveAllChangesAsync();
     }
 
-    public async Task CreateAsync(OrderPostDto orderPostDto)
+    public async Task<int> CreateOrderAsync(int userId)
     {
-        if (orderPostDto.TotalAmount < 0)
-            throw new InvalidOrderException("Total prrice cannot be negative");
-
-        await _getByIdAsync(orderPostDto.UserId);
-
         Order order = new()
         {
             OrderDate = DateTime.UtcNow,
-            TotalAmount = orderPostDto.TotalAmount,
-            UserId = orderPostDto.UserId,
+            TotalAmount = 0,
+            UserId = userId,
             Status = OrderStatus.Pending
         };
         await _ordersRepository.CreateAsync(order);
         await _ordersRepository.SaveAllChangesAsync();
+        return order.Id;
     }
+
 
     public async Task<List<OrderDetailGetDto>> GetOrderDetailsByOrderId(int orderId)
     {
-        await _getByIdAsync(orderId);
+        await GetOrderByIdAsync(orderId);
 
         var order = await _ordersRepository.GetSingleAsync(x => x.Id == orderId, "OrderDetails");
 
@@ -123,14 +143,15 @@ public class OrderService  : IOrderService
         return ordersList;
     }
 
-    private async Task<Order> _getByIdAsync(int id)
+    public async Task<Order> GetOrderByIdAsync(int id)
     {
         var order = await _ordersRepository.GetSingleAsync(x => x.Id == id);
         if (order is null)
             throw new NotFoundException("Order is not found");
 
+
         return order;
     }
 
-    
+
 }
