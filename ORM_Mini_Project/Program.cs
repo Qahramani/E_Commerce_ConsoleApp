@@ -11,6 +11,9 @@ using System.Globalization;
 using ORM_Mini_Project.DTOs.OrderDetailDtos;
 using ORM_Mini_Project.DTOs.PaymentDtos;
 using ORM_Mini_Project.Helpers;
+using ClosedXML.Excel;
+using ORM_Mini_Project.Services.Interfaces;
+using ORM_Mini_Project.Contexts;
 
 namespace ORM_Mini_Project
 {
@@ -19,7 +22,9 @@ namespace ORM_Mini_Project
     {
         static async Task Main(string[] args)
         {
+            AppDbContext context = new AppDbContext();
         restartMainMenu:
+            await context.SaveChangesAsync();
             Console.WriteLine("----- Main Menu -----");
             Console.Write("[1] Register\n" +
                 "[2] Login\n" +
@@ -37,7 +42,7 @@ namespace ORM_Mini_Project
                     case "2":
                         var loggedUser = await MainMenuService.UserLoginAsync();
                         await UserMenuService.MenuAsync(loggedUser);
-                        break;
+                        goto restartMainMenu;
                     case "3":
                         await MainMenuService.AdminLoginasync();
                         goto restartMainMenu;
@@ -81,9 +86,9 @@ namespace ORM_Mini_Project
             }
         }
 
-
+       
+        }
 
 
 
     }
-}

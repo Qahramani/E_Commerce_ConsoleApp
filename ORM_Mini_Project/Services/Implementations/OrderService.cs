@@ -126,7 +126,7 @@ public class OrderService : IOrderService
 
     public async Task<List<OrderGetDto>> GetOrders()
     {
-        var orders = await _ordersRepository.GetAllAsync();
+        var orders = await _ordersRepository.GetAllAsync("OrderDetails.Product");
         List<OrderGetDto> ordersList = new List<OrderGetDto>();
         foreach (var order in orders)
         {
@@ -137,6 +137,8 @@ public class OrderService : IOrderService
                 Status = order.Status,
                 OrderDate = order.OrderDate,
                 TotalAmount = order.TotalAmount,
+                OrderDetails=order.OrderDetails,
+                 UserId=order.UserId,
             };
             ordersList.Add(dto);
         }

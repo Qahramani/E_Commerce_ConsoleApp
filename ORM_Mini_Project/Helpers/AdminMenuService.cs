@@ -1,4 +1,6 @@
-﻿using ORM_Mini_Project.DTOs.ProductDtos;
+﻿using DocumentFormat.OpenXml.InkML;
+using ORM_Mini_Project.Contexts;
+using ORM_Mini_Project.DTOs.ProductDtos;
 using ORM_Mini_Project.Exceptions;
 using ORM_Mini_Project.Services.Implementations;
 using ORM_Mini_Project.Utilities;
@@ -9,8 +11,10 @@ public static class AdminMenuService
 {
     static  ProductService productService = new ProductService();
    static AdminService adminService = new AdminService();
+   static AppDbContext context = new AppDbContext();
     public static async Task AdminMenu()
     {
+        await context.SaveChangesAsync();
 
     restartAdminMenu:
         Console.WriteLine("--- Admin Menu ---");
@@ -113,7 +117,7 @@ public static class AdminMenuService
                     var products = await productService.GetAllAsync();
                     foreach (var p in products)
                     {
-                        Console.WriteLine($"Name : {p.Name}, Price : {p.Price}, Stock : {p.Stock}, Desciption : {p.Description}");
+                        Console.WriteLine($"Id : {p.Id}, Name : {p.Name}, Price : {p.Price}, Stock : {p.Stock}, Desciption : {p.Description}");
                     }
 
                     goto restartAdminMenu;

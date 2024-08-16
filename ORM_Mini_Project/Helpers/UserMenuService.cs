@@ -1,16 +1,21 @@
-﻿using Microsoft.Extensions.Logging.Abstractions;
+﻿using ClosedXML.Excel;
+using Microsoft.Extensions.Logging.Abstractions;
+using ORM_Mini_Project.Contexts;
 using ORM_Mini_Project.DTOs.OrderDetailDtos;
 using ORM_Mini_Project.DTOs.ProductDtos;
 using ORM_Mini_Project.DTOs.UserDtos;
 using ORM_Mini_Project.Enums;
 using ORM_Mini_Project.Exceptions;
 using ORM_Mini_Project.Services.Implementations;
+using ORM_Mini_Project.Services.Interfaces;
 using ORM_Mini_Project.Utilities;
 
 namespace ORM_Mini_Project.Helpers
 {
+
     public static class UserMenuService
     {
+        static AppDbContext context = new AppDbContext();
         static UserService userService = new UserService();
         static ProductService productService = new ProductService();
         static OrderService orderService = new OrderService();
@@ -127,17 +132,17 @@ namespace ORM_Mini_Project.Helpers
         public static async Task OrdersMenuAsync(UserGetDto loggedUser)
         {
         restartOrdersMenu:
+            await context.SaveChangesAsync();
             Console.WriteLine("--- Orders/Payments Menu ---");
             Console.Write("[1] Make Order\n" +
                 "[2] Complete Order\n" +
                 "[3] Cancel Order\n" +
                 "[4] See your Orders\n" +
                 "[5] See your Payments\n" +
-                "[6] Export Payment to excel\n" +
+                "[6] Export  to excel\n" +
                 "[0] Exit\n" +
                 ">>> ");
             string opt = Console.ReadLine();
-            var orders = await userService.GetUserOrdersAsync(loggedUser.Id);
             try
             {
                 switch (opt)
@@ -153,7 +158,9 @@ namespace ORM_Mini_Project.Helpers
                         else if (opt.ToUpper() == "E")
                         {
                             Console.WriteLine("--- Pending Orders ---");
-                            foreach (var order in orders)
+                            var orders2 = await userService.GetUserOrdersAsync(loggedUser.Id);
+
+                            foreach (var order in orders2)
                             {
                                 if (order.Status == OrderStatus.Pending)
                                     Console.WriteLine($"Id : {order.Id}, TotalAmount : {order.TotalAmount}, OrderDate : {order.OrderDate}, Status : {order.Status}");
@@ -200,6 +207,10 @@ namespace ORM_Mini_Project.Helpers
 
                         goto restartOrdersMenu;
                     case "2":
+                        var orders = await orderService.GetOrders();
+
+                        orders = orders.Where(x => x.UserId == loggedUser.Id).ToList();
+
                         foreach (var order in orders)
                         {
                             if (order.Status == OrderStatus.Pending)
@@ -211,7 +222,11 @@ namespace ORM_Mini_Project.Helpers
                         Colored.WriteLine("Order was completed succsefully (Payment was made)", ConsoleColor.DarkGreen);
                         goto restartOrdersMenu;
                     case "3":
-                        foreach (var order in orders)
+                        var orders3 = await orderService.GetOrders();
+
+                        orders3 = orders3.Where(x => x.UserId == loggedUser.Id).ToList();
+
+                        foreach (var order in orders3)
                         {
                             if (order.Status == OrderStatus.Pending)
                                 Console.WriteLine($"Id : {order.Id}, TotalAmount : {order.TotalAmount}, OrderDate : {order.OrderDate}");
@@ -222,7 +237,28 @@ namespace ORM_Mini_Project.Helpers
                         Colored.WriteLine("Order was cancelled succsefully (Payment was made)", ConsoleColor.DarkGreen);
                         goto restartOrdersMenu;
                     case "4":
-                        await PrintOrdersAsync(loggedUser);
+                        //await PrintOrdersAsync(loggedUser);
+
+                        var orderss = await orderService.GetOrders();
+
+                        orderss = orderss.Where(x => x.UserId == loggedUser.Id).ToList();
+
+                        foreach (var order in orderss)
+                        {
+                            Console.Write($"Id : {order.Id}, TotalAmount : {order.TotalAmount}, OrderDate : {order.OrderDate}, Status : ");
+                            if (order.Status == OrderStatus.Completed)
+                                Colored.WriteLine("Completed", ConsoleColor.DarkGreen);
+                            else if (order.Status == OrderStatus.Pending)
+                                Colored.WriteLine("Pending", ConsoleColor.DarkYellow);
+                            else if (order.Status == OrderStatus.Cancelled)
+                                Colored.WriteLine("Canceled", ConsoleColor.DarkRed);
+                            foreach (var od in order.OrderDetails)
+                            {
+                                Colored.WriteLine($"Product : {od.Product.Name},Quantity : {od.Quantity} ,PricePerItem : {od.PricePerItem}", ConsoleColor.White);
+                            }
+                            Console.WriteLine("-----------------------------------------------------------------------------------------------------------------");
+                        }
+
                         goto restartOrdersMenu;
                     case "5":
                         Console.WriteLine("--- Payments List ---");
@@ -233,6 +269,18 @@ namespace ORM_Mini_Project.Helpers
                         }
                         goto restartOrdersMenu;
                     case "6":
+                        //Console.WriteLine("--- Payments List ---");
+                        //var paymentToExport = await paymentService.GetPaymentsAsync(loggedUser.Id);
+                        //foreach (var p in paymentToExport)
+                        //{
+                        //    Console.WriteLine($"Order Id : {p.Order.Id}, Payment Date : {p.PaymentDate}, Amount : {p.Amount}");
+                        //}
+                        //Console.WriteLine("Id of payment that you want to export : ");
+                        //int paymentId = int.Parse(Console.ReadLine());
+
+                        //var foundPayment = await paymentService.GetPaymentByIdAsync(paymentId);
+                        await userService.ExportUserOrdersToExcelAsync(loggedUser.Id);
+
 
                         goto restartOrdersMenu;
                     case "0":
@@ -274,6 +322,30 @@ namespace ORM_Mini_Project.Helpers
 
         }
 
+
+        //public async static Task ExcelExports()
+        //{
+        //    var products = await productService.GetAllAsync();
+        //    var orderDetails = await orderService.GetOrderByIdAsync();
+        //    var payments = await paymentService.GetPaymentsAsync();
+
+        //    using (var workbook = new XLWorkbook())
+        //    {
+        //        var productsSheet = workbook.AddWorksheet("Products");
+        //        productsSheet.FirstCell().InsertTable(products);
+
+        //        var ordersSheet = workbook.AddWorksheet("Orders");
+        //        ordersSheet.FirstCell().InsertTable(orderDetails);
+
+        //        var paymentsSheet = workbook.AddWorksheet("Payments");
+        //        paymentsSheet.FirstCell().InsertTable(payments);
+
+        //        var usersSheet = workbook.AddWorksheet("Users");
+        //        usersSheet.FirstCell().InsertTable(users);
+
+        //        workbook.SaveAs(@"C:\Users\NafisatAkiyeva\Desktop\Excels\Test.xlsx");
+        //    }
+        //}
         public static async Task PrintOrdersAsync(UserGetDto loggedUser)
         {
             Console.WriteLine("--- Your Orders ---");

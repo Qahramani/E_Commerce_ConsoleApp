@@ -12,7 +12,7 @@ public interface IUserService
     Task<UserGetDto> LoginUserASync(string  username, string password);
     Task UpdateUserInfoAsync(UserPutDto newUserDto);
     Task DeleteAsync(int id);
-    Task ExportUserPaymentsToExcel(int userId);
+    Task ExportUserOrdersToExcelAsync(int userId);
     Task<List<OrderGetDto>> GetUserOrdersAsync(int userId);
     Task DisActivateAccountAsync(int userId);    
     

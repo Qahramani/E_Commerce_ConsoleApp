@@ -13,4 +13,6 @@ public class OrderGetDto
     public OrderStatus Status { get; set; }
     public List<OrderDetail> OrderDetails { get; set; }
     public List<Payment> Payments { get; set; }
+
+    
 }

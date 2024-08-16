@@ -59,3 +59,10 @@ C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\obj\
 C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\obj\Debug\net6.0\ORM_Mini_Project.genruntimeconfig.cache
 C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\obj\Debug\net6.0\ref\ORM_Mini_Project.dll
 C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\bin\Debug\net6.0\ClosedXML.dll
+C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\bin\Debug\net6.0\ExcelNumberFormat.dll
+C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\bin\Debug\net6.0\Irony.dll
+C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\bin\Debug\net6.0\SixLabors.Fonts.dll
+C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\User\OneDrive\Desktop\BP303\E_Commerce_ConsoleApp\ORM_Mini_Project\bin\Debug\net6.0\XLParser.dll

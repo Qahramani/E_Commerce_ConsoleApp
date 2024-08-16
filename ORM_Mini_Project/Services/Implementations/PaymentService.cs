@@ -6,6 +6,7 @@ using ORM_Mini_Project.Repositories.Implementations;
 using ORM_Mini_Project.Repositories.Interfaces;
 using ORM_Mini_Project.Services.Interfaces;
 using ORM_Mini_Project.Utilities;
+using ORM_Mini_Project.XML;
 using System.Runtime.CompilerServices;
 
 namespace ORM_Mini_Project.Services.Implementations;
@@ -22,6 +23,23 @@ public class PaymentService : IPaymentService
         _ordersRepository = new OrderRepository();
         _productRepository = new ProductRepository();
         _userService = new UserService();
+    }
+
+    public async Task<PaymentGetDto> GetPaymentByIdAsync(int paymentId)
+    {
+        var payment = await _paymentRepository.GetSingleAsync(x => x.Id == paymentId,"Payments");
+
+        if (payment is null)
+            throw new NotFoundException("Payment is not found");
+
+            PaymentGetDto dto = new()
+            {
+                Amount = payment.Amount,
+                Order = payment.Order,
+                PaymentDate = payment.PaymentDate
+            };
+
+        return dto;
     }
 
     public async Task<List<PaymentGetDto>> GetPaymentsAsync(int userId)
