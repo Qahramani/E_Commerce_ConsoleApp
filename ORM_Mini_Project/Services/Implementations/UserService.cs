@@ -1,4 +1,5 @@
 ﻿using ORM_Mini_Project.DTOs.OrderDtos;
+using ORM_Mini_Project.DTOs.PaymentDtos;
 using ORM_Mini_Project.DTOs.UserDtos;
 using ORM_Mini_Project.Enums;
 using ORM_Mini_Project.Exceptions;
@@ -6,6 +7,7 @@ using ORM_Mini_Project.Models;
 using ORM_Mini_Project.Repositories.Implementations;
 using ORM_Mini_Project.Repositories.Interfaces;
 using ORM_Mini_Project.Services.Interfaces;
+using ORM_Mini_Project.Utilities;
 
 namespace ORM_Mini_Project.Services.Implementations;
 
@@ -36,14 +38,14 @@ public class UserService : IUserService
 
     public async Task DeleteAsync(int id)
     {
-        var user = await _getByIdAsync(id);
+        var user = await getByIdAsync(id);
         _userRepository.Delete(user);
         await _userRepository.SaveAllChangesAsync();
     }
 
     public async Task UpdateUserInfoAsync(UserPutDto newUserDto)
     {
-        var user = await _getByIdAsync(newUserDto.Id);
+        var user = await getByIdAsync(newUserDto.Id);
 
         var isEmailExist = await _userRepository.IsExistAsync(x => x.Email == newUserDto.Email && x.Id != newUserDto.Id);
         if (isEmailExist)
@@ -57,11 +59,12 @@ public class UserService : IUserService
 
         _userRepository.Update(user);
         await _userRepository.SaveAllChangesAsync();
+        Colored.WriteLine("User updated succesfully ", ConsoleColor.DarkGreen);
     }
 
     public async Task<List<OrderGetDto>> GetUserOrdersAsync(int userId )
     {
-        await _getByIdAsync(userId);
+        await getByIdAsync(userId);
         var user = await _userRepository.GetSingleAsync(x => x.Id == userId, "Orders.OrderDetails.Product");
 
         List<OrderGetDto> ordersList = new();
@@ -85,7 +88,7 @@ public class UserService : IUserService
 
     public async Task<UserGetDto> LoginUserASync(string email, string password)
     {
-        var foundUser = await _userRepository.GetSingleAsync(x => x.Password ==  password && x.Email == email);
+        var foundUser = await _userRepository.GetSingleAsync(x => x.Password ==  password && x.Email.ToLower() == email.ToLower());
         if (foundUser is null)
             throw new InvalidUserInformationException("User is not found");
         if (foundUser.IsActive is false)
@@ -108,12 +111,20 @@ public class UserService : IUserService
 
    
 
-    private async Task<User> _getByIdAsync(int id)
+    public async Task<User> getByIdAsync(int id)
     {
         var user = await _userRepository.GetSingleAsync(x => x.Id == id);
         if (user is null)
             throw new NotFoundException("User is not found");
 
         return user;
+    }
+
+    public async Task DisActivateAccountAsync(int userId)
+    {
+        var user = await getByIdAsync(userId);
+        user.IsActive = false;
+        _userRepository.Update(user);
+        await _userRepository.SaveAllChangesAsync();
     }
 }

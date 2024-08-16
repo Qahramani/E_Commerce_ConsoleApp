@@ -67,7 +67,7 @@ public class ProductService : IProductService
 
     public async Task<List<ProductGetDto>> GetAllAsync()
     {
-        var products = await _productRepository.GetAllAsync("OrderDetails.Orders");
+        var products = await _productRepository.GetAllAsync("OrderDetails.Order");
 
         List<ProductGetDto> productsList = new List<ProductGetDto>();
 

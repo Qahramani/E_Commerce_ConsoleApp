@@ -1,4 +1,5 @@
 ﻿using ORM_Mini_Project.DTOs.OrderDtos;
+using ORM_Mini_Project.DTOs.PaymentDtos;
 using ORM_Mini_Project.DTOs.UserDtos;
 using ORM_Mini_Project.Enums;
 using ORM_Mini_Project.Models;
@@ -13,4 +14,6 @@ public interface IUserService
     Task DeleteAsync(int id);
     Task ExportUserPaymentsToExcel(int userId);
     Task<List<OrderGetDto>> GetUserOrdersAsync(int userId);
+    Task DisActivateAccountAsync(int userId);    
+    
 }

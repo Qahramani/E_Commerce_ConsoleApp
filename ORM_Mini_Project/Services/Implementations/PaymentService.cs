@@ -6,6 +6,7 @@ using ORM_Mini_Project.Repositories.Implementations;
 using ORM_Mini_Project.Repositories.Interfaces;
 using ORM_Mini_Project.Services.Interfaces;
 using ORM_Mini_Project.Utilities;
+using System.Runtime.CompilerServices;
 
 namespace ORM_Mini_Project.Services.Implementations;
 
@@ -14,27 +15,44 @@ public class PaymentService : IPaymentService
     private readonly IPaymentRepository _paymentRepository;
     private readonly IOrdersRepository _ordersRepository;
     private readonly IProductRepository _productRepository;
+    private readonly IUserService _userService;
     public PaymentService()
     {
         _paymentRepository = new PaymentRepository();
         _ordersRepository = new OrderRepository();
         _productRepository = new ProductRepository();
+        _userService = new UserService();
     }
 
     public async Task<List<PaymentGetDto>> GetPaymentsAsync(int userId)
     {
-        var payments = await _paymentRepository.GetFilterAsync(x => x.Id == userId, "Order");
         List<PaymentGetDto> paymentsList = new List<PaymentGetDto>();
-        foreach (var payment in payments)
+
+        var orders = await _userService.GetUserOrdersAsync(userId);
+
+        foreach (var order in orders)
         {
-            PaymentGetDto dto = new()
+            var payments = await _paymentRepository.GetFilterAsync(x => x.OrderId == order.Id, "Order");
+            foreach (var p in payments)
             {
-                Order = payment.Order,
-                PaymentDate = payment.PaymentDate,
-                Amount = payment.Amount,
-            };
-            paymentsList.Add(dto);
+                PaymentGetDto dto = new()
+                {
+                    Order = p.Order,
+                    PaymentDate = p.PaymentDate,
+                    Amount = p.Amount,
+                };
+
+                paymentsList.Add(dto);
+            }
+
         }
+
+       
+        //var orders  =await  _userService.GetUserOrdersAsync(userId);
+        //var orders = await _ordersRepository.GetFilterAsync(x => x.Id == userId, "Payments");
+
+       
+
         return paymentsList;
     }
 
@@ -67,10 +85,10 @@ public class PaymentService : IPaymentService
             }
 
             _productRepository.Update(orderDetail.Product);
-            await  _productRepository.SaveAllChangesAsync();
+            await _productRepository.SaveAllChangesAsync();
         }
 
-        
+
         _ordersRepository.Update(order);
 
         await _paymentRepository.CreateAsync(payment);

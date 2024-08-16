@@ -145,7 +145,7 @@ public class OrderService : IOrderService
 
     public async Task<Order> GetOrderByIdAsync(int id)
     {
-        var order = await _ordersRepository.GetSingleAsync(x => x.Id == id);
+        var order = await _ordersRepository.GetSingleAsync(x => x.Id == id, "OrderDetails");
         if (order is null)
             throw new NotFoundException("Order is not found");
 
